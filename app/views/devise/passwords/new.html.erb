@@ -1,12 +1,29 @@
-<div class="authform">
+<div class="container" id="login-block">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+      <div class="page-icon-shadow animated bounceInDown"> </div>
+      <div class="login-box clearfix animated flipInY">
+        <div class="page-icon animated bounceInDown">
+          <i class="glyphicon glyphicon-question-sign"></i>
+        </div>
+        <div class="login-logo">
+          <%= link_to image_tag("logo-white.png"), users_path %>
+        </div>
+        <hr>
+        <div class="login-form">
+          <div class="alert alert-danger hide">
+            <button type="button" class="close" data-dismiss="alert"> ×</button>
+            <h4>Error!</h4>
+            <%= devise_error_messages! %>
+          </div>
   <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :role => 'form'}) do |f| %>
-    <h3>Forgot your password?</h3>
-    <p>We'll send password reset instructions.</p>
-    <%= devise_error_messages! %>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
-    </div>
-     <%= f.submit 'Reset Password', :class => 'button right' %>
+    <p>Ingrese su email y le enviaremos las intrucciones para recuperar su contraseña</p>
+      <%= f.email_field :email, :autofocus => true, class: 'input-field', placeholder: "Correo electronico", required: "" %>
+     <%= f.submit 'Enviar correo', :class => 'btn btn-login btn-reset' %>
   <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

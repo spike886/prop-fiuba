@@ -1,14 +1,30 @@
-<div class="authform">
+<div class="container" id="login-block">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+      <div class="page-icon-shadow animated bounceInDown"> </div>
+      <div class="login-box clearfix animated flipInY">
+        <div class="page-icon animated bounceInDown">
+          <i class="glyphicon glyphicon-question-sign"></i>
+        </div>
+        <div class="login-logo">
+          <%= link_to image_tag("logo-white.png"), users_path %>
+        </div>
+        <hr>
+        <div class="login-form">
+          <div class="alert alert-danger hide">
+            <button type="button" class="close" data-dismiss="alert"> ×</button>
+            <h4>Error!</h4>
+            <%= devise_error_messages! %>
+          </div>
   <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-    <h3>Change your password</h3>
-    <%= devise_error_messages! %>
+    <p>Ingrese su nueva contraseña</p>
     <%= f.hidden_field :reset_password_token %>
-    <div class="form-group">
-      <%= f.label :password, 'New password' %>
-        <%= f.password_field :password, autofocus: true, autocomplete: 'off', class: 'form-control' %>
-      <%= f.label :password_confirmation, 'Confirm new password' %>
-        <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
-    </div>
-     <%= f.submit 'Change my Password', :class => 'button right' %>
+        <%= f.password_field :password, autofocus: true, autocomplete: 'off', class: 'input-field', placeholder: "Contraseña", required: "" %>
+        <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'input-field', placeholder: "Verifique contraseña", required: "" %>
+     <%= f.submit 'Guardar', :class => 'btn btn-login' %>
   <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
