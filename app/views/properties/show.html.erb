@@ -1,0 +1,37 @@
+<%- model_class = Property -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @property.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:location_id) %>:</strong></dt>
+  <dd><%= @property.location_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @property.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:age) %>:</strong></dt>
+  <dd><%= @property.age %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rooms) %>:</strong></dt>
+  <dd><%= @property.rooms %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bathrooms) %>:</strong></dt>
+  <dd><%= @property.bathrooms %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bedrooms) %>:</strong></dt>
+  <dd><%= @property.bedrooms %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:type_of_building) %>:</strong></dt>
+  <dd><%= @property.type_of_building %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:covered_area) %>:</strong></dt>
+  <dd><%= @property.covered_area %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:total_area) %>:</strong></dt>
+  <dd><%= @property.total_area %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              properties_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_property_path(@property), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              property_path(@property),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

@@ -1,0 +1,94 @@
+<%= form_for @property, :html => { :class => "form-horizontal property" } do |f| %>
+
+    <% if @property.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @property.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, :class => 'form-control' %>
+    </div>
+    <%= error_span(@property[:address]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :location_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :location_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@property[:location_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :user_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :user_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@property[:user_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :age, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :age, :class => 'form-control' %>
+    </div>
+    <%= error_span(@property[:age]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :rooms, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :rooms, :class => 'form-control' %>
+    </div>
+    <%= error_span(@property[:rooms]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :bathrooms, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bathrooms, :class => 'form-control' %>
+    </div>
+    <%= error_span(@property[:bathrooms]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :bedrooms, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bedrooms, :class => 'form-control' %>
+    </div>
+    <%= error_span(@property[:bedrooms]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :type_of_building, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :type_of_building, :class => 'form-control' %>
+    </div>
+    <%= error_span(@property[:type_of_building]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :covered_area, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :covered_area, :class => 'form-control' %>
+    </div>
+    <%= error_span(@property[:covered_area]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :total_area, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :total_area, :class => 'form-control' %>
+    </div>
+    <%= error_span(@property[:total_area]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            properties_path, :class => 'btn btn-default' %>
+
+<% end %>

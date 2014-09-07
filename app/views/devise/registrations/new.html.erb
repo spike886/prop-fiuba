@@ -1,4 +1,4 @@
-<div class="container" id="login-block">
+<div class="container login-form-x" id="login-block">
   <div class="row">
     <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
       <div class="page-icon-shadow animated bounceInDown"> </div>
@@ -7,7 +7,7 @@
           <i class="glyphicon glyphicon-pencil"></i>
         </div>
         <div class="login-logo">
-          <%= link_to image_tag("logo-white.png"), root_path %>
+          <%= link_to image_tag("logo-black.png"), root_path %>
         </div>
         <hr>
         <div class="login-form">
@@ -16,18 +16,19 @@
             <h4>Error!</h4>
             <%= devise_error_messages! %>
           </div>
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
-      <%= f.text_field :name, :autofocus => true, class: 'input-field', placeholder: "Nombre", required: "" %>
-      <%= f.email_field :email, class: 'input-field', placeholder: "Correo electronico", required: "" %>
-      <%= f.password_field :password, class: 'input-field', placeholder: "Contraseña", required: "" %>
-      <%= f.password_field :password_confirmation, class: 'input-field', placeholder: "Verifique contraseña", required: "" %>
-     <%= f.submit 'Registrar', :class => 'btn btn-login' %>
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
+              <%= f.text_field :name, :autofocus => true, class: 'input-field', placeholder: "Nombre completo", required: "" %>
+              <%= f.text_field :phone, class: 'input-field', placeholder: "Telefono", required: "" %>
+              <%= f.email_field :email, class: 'input-field', placeholder: "Correo electronico", required: "" %>
+              <%= f.password_field :password, class: 'input-field', placeholder: "Contraseña", required: "" %>
+              <%= f.password_field :password_confirmation, class: 'input-field', placeholder: "Verifique contraseña", required: "" %>
+              <%= f.submit 'Registrar', :class => 'btn btn-login' %>
               <div class="login-links">
                 <%- if devise_mapping.registerable? %>
                     <%= link_to '¿yo tiene una cuenta? <strong>Ingrese</strong>'.html_safe, new_session_path(resource_name), class: 'right'  %>
                 <% end -%>
               </div>
-  <% end %>
+          <% end %>
         </div>
       </div>
     </div>

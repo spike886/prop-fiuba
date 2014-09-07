@@ -1,0 +1,59 @@
+<%= form_for @publication, :html => { :class => "form-horizontal publication" } do |f| %>
+
+    <% if @publication.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@publication.errors.count, "error") %> prohibited this publication from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @publication.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :publication_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :publication_type, :class => 'form-control' %>
+    </div>
+    <%= error_span(@publication[:publication_type]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :start_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :start_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@publication[:start_date]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :end_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :end_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@publication[:end_date]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :active, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :active, :class => 'form-control' %>
+    </div>
+    <%= error_span(@publication[:active]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :property_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :property_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@publication[:property_id]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            publications_path, :class => 'btn btn-default' %>
+
+<% end %>

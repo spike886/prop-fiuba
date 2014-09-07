@@ -14,7 +14,11 @@ gem 'devise'
 gem 'pg'
 gem 'sendgrid'
 gem 'newrelic_rpm'
+gem 'paperclip'
 gem 'high_voltage', '~> 2.2.1'
+gem 'autoprefixer-rails'
+gem 'twitter-bootstrap-rails'
+gem 'active_model_serializers'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

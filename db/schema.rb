@@ -11,10 +11,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902041513) do
+ActiveRecord::Schema.define(version: 20140907054346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "images", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "property_id"
+  end
+
+  add_index "images", ["property_id"], name: "index_images_on_property_id", using: :btree
+
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "properties", force: true do |t|
+    t.string   "address"
+    t.integer  "location_id"
+    t.integer  "user_id"
+    t.integer  "age"
+    t.integer  "rooms"
+    t.integer  "bathrooms"
+    t.integer  "bedrooms"
+    t.string   "type_of_building"
+    t.integer  "covered_area"
+    t.integer  "total_area"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "properties", ["location_id"], name: "index_properties_on_location_id", using: :btree
+  add_index "properties", ["user_id"], name: "index_properties_on_user_id", using: :btree
+
+  create_table "publications", force: true do |t|
+    t.string   "publication_type"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.boolean  "active"
+    t.integer  "property_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "publications", ["property_id"], name: "index_publications_on_property_id", using: :btree
+  add_index "publications", ["user_id"], name: "index_publications_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +76,11 @@ ActiveRecord::Schema.define(version: 20140902041513) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
