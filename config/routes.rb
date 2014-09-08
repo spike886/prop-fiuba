@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   authenticate :user do
     resources :users
@@ -13,4 +14,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :publications, only: [:index, :show]
   end
+
+  get "/translate", to: redirect("http://stark-cliffs-2158.herokuapp.com/projects/1")
 end

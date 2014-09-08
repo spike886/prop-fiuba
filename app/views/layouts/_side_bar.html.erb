@@ -1,11 +1,9 @@
-<div class="col-lg-3">
+<div class="col-lg-3 animated bounceInDown">
   <div class="well sidebar-nav">
-    <h3>Contoles</h3>
+    <h3><%= t "app.sidebar.title" %></h3>
     <ul class="nav nav-list">
-      <li class="nav-header">Acciones</li>
-      <li><%= link_to "Vender", "/path1"  %></li>
-      <li><%= link_to "Alquilar", "/path2"  %></li>
-      <li><%= link_to "Alquilar temporariamente", "/path3"  %></li>
+      <li class="nav-header"><%= t "app.sidebar.subtitle" %></li>
+      <%= render 'layouts/side_bar_links' %>
     </ul>
   </div><!--/.well -->
 </div><!--/span-->

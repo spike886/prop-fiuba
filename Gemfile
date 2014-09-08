@@ -19,6 +19,10 @@ gem 'high_voltage', '~> 2.2.1'
 gem 'autoprefixer-rails'
 gem 'twitter-bootstrap-rails'
 gem 'active_model_serializers'
+gem 'rails_admin'
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'copycopter_client'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -31,6 +35,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  gem 'meta_request'
 end
 group :development, :test do
   gem 'factory_girl_rails'

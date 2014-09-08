@@ -1,0 +1,114 @@
+---
+en:
+  app:
+    title: "<p>MiLEEM</p>"
+es:
+  activerecord:
+    attributes:
+      image:
+        created_at: Created at
+        file: File
+        id: Id
+        property: Property
+        updated_at: Updated at
+      location:
+        created_at: Created at
+        id: Id
+        name: Name
+        properties: Properties
+        updated_at: Updated at
+      property:
+        address: Direccion
+        age: Age
+        bathrooms: Bathrooms
+        bedrooms: Bedrooms
+        covered_area: Covered area
+        created_at: Created at
+        id: Id
+        location: Location
+        location_id: Location
+        rooms: Rooms
+        total_area: Total area
+        type_of_building: Type of building
+        updated_at: Updated at
+        user: User
+        user_id: User
+      publication:
+        active: Active
+        created_at: Created at
+        end_date: End date
+        id: Id
+        property: Property
+        property_id: Property
+        publication_type: Publication type
+        start_date: Start date
+        updated_at: Updated at
+        user: User
+      user:
+        created_at: Created at
+        current_sign_in_at: Current sign in at
+        current_sign_in_ip: Current sign in ip
+        email: Email
+        id: Id
+        last_sign_in_at: Last sign in at
+        last_sign_in_ip: Last sign in ip
+        name: Name
+        password: Password
+        password_confirmation: Password confirmation
+        phone: Phone
+        remember_created_at: Remember created at
+        reset_password_sent_at: Reset password sent at
+        reset_password_token: Reset password token
+        sign_in_count: Sign in count
+        updated_at: Updated at
+    models:
+      image: Image
+      location: Location
+      property: Propiedad
+      publication: Publication
+      user: User
+  admin:
+    help:
+      image:
+        file: 'translation missing: es.admin.form.optional. '
+        property: 'translation missing: es.admin.form.optional. '
+      location:
+        name: Opcional. Longitud de hasta 255.
+        properties: 'Opcional. '
+    misc:
+      filter_date_format: mm/dd/yy
+  devise:
+    failure:
+      user:
+        unauthenticated: Tienes que iniciar sesión o registrarte para poder continuar.
+    sessions:
+      user:
+        signed_in: Sesión iniciada.
+        signed_out: Sesión finalizada.
+  helpers:
+    submit:
+      property:
+        create: Crear Property
+      publication:
+        create: Crear Publication
+  properties:
+    form:
+      cancel: Cancelar
+    index:
+      actions: Acciones
+      new: Nuevo
+      title: Properties
+    new:
+      title: Nuevo Property
+  publications:
+    form:
+      cancel: Cancelar
+    index:
+      actions: Acciones
+      new: Nuevo
+      title: Publications
+    new:
+      title: Nuevo Publication
+  users:
+    index:
+      title: Users
