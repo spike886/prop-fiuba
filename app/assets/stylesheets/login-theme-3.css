@@ -213,7 +213,7 @@ label.checkbox input{
 /* For Long Shadow 
 =================================================================== */  
 
-.page-icon {
+.page-icon, .shadow {
 	 
 	overflow: hidden; 
 	box-shadow: rgba(29, 38, 49, 0.02) 1px 1px, 

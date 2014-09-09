@@ -40,7 +40,7 @@
   <%= render 'layouts/navigation' %>
     <div class="container">
       <div class="row">
-        <div class="col-lg-9 animated flipInY">
+        <div class="col-lg-9 <%= unless controller_name == 'registrations'; "animated flipInY shadow" end %>">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
