@@ -37,21 +37,30 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
-  <%= render 'layouts/navigation' %>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9 <%= unless controller_name == 'registrations'; "animated flipInY shadow" end %>">
-          <%= bootstrap_flash %>
-          <%= yield %>
+    <div class="wrap">
+      <%= render 'layouts/navigation' %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 flash-container">
+            <%= bootstrap_flash class: "container-shadow animated bounceInLeft" %>
+          </div>
         </div>
-        <%= render 'layouts/side_bar' %>
+        <div class="row">
+          <div class="col-md-3">
+            <%= render 'layouts/side_bar' %>
+          </div><!--/span-->
+          <div class="col-md-9">
+            <div class="panel main-container <%= unless controller_name == 'registrations'; "animated flipInY container-shadow" end %>">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div> <!-- /container -->
+    </div>
+    <div class="footer">
+      <div class="container">
+        <p><%= t("app.footer").html_safe %></p>
       </div>
-
-      <footer>
-        <p><%= t "app.footer" %></p>
-      </footer>
-
-    </div> <!-- /container -->
-
+    </div>
   </body>
 </html>

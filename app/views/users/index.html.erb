@@ -1,7 +1,8 @@
 <%- model_class = User -%>
-<div class="page-header">
+<div class="panel-heading">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<div class="panel-body">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -20,3 +21,4 @@
     <% end %>
   </tbody>
 </table>
+</div>

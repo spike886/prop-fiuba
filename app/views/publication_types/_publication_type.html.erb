@@ -1,0 +1,22 @@
+<div class="col-md-4 col-sm-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s" style="visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;">
+  <div class="single-package">
+    <h3 class="package-heading main-color">
+      <%= publication_type.name %>
+    </h3>
+    <div class="price">
+      <% if publication_type_counter.odd? %><div class="color-bg"><% end %>
+      <h2><span class="sign"></span><%= t('activerecord.attributes.publication_type.cost', count: publication_type.cost ).html_safe %></h2>
+      <% if publication_type_counter.odd? %></div><% end %>
+    </div>
+    <ul class="package-feature">
+      <li><%= check_icon_tag true %><%= t('activerecord.attributes.publication_type.images_count', count: publication_type.images_count ) %></li>
+      <li><%= check_icon_tag true %><%= t('activerecord.attributes.publication_type.location') %></li>
+      <li><%= check_icon_tag true %><%= t('activerecord.attributes.publication_type.description') %></li>
+      <li><%= check_icon_tag true %><%= t('activerecord.attributes.publication_type.stats') %></li>
+      <li><%= check_icon_tag(publication_type.videos_count > 0) %><%= t('activerecord.attributes.publication_type.videos_count', count: publication_type.videos_count ) %></li>
+      <li><%= check_icon_tag publication_type.priority_on_search %><%= t('activerecord.attributes.publication_type.priority_on_search', count: publication_type.priority_on_search ? 1 : 0 ) %></li>
+      <li><%= check_icon_tag publication_type.highlight %><%= t('activerecord.attributes.publication_type.highlight', count: publication_type.highlight ? 1 : 0 ) %></li>
+      <li><span class="green-color icon_clock"></span><%= t('activerecord.attributes.publication_type.publication_days', count: publication_type.publication_days ) %></li>
+    </ul>
+  </div>
+</div>

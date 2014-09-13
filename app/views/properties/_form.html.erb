@@ -30,13 +30,6 @@
     <%= error_span(@property[:location_id]) %>
   </div>
   <div class="control-group">
-    <%= f.label :user_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :user_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@property[:user_id]) %>
-  </div>
-  <div class="control-group">
     <%= f.label :age, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :age, :class => 'form-control' %>
@@ -86,7 +79,7 @@
     <%= error_span(@property[:total_area]) %>
   </div>
 
-
+  <br/>
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             properties_path, :class => 'btn btn-default' %>

@@ -15,43 +15,29 @@
     </div>
   <% end %>
 
-  <div class="control-group">
-    <%= f.label :publication_type, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :publication_type, :class => 'form-control' %>
+    <div class="control-group">
+      <%= f.label :operation_type, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :operation_type, Publication::OPERATION_TYPES, {prompt: "Seleccione..."}, :class => 'form-control' %>
+      </div>
+      <%= error_span(@publication[:operation_type]) %>
     </div>
-    <%= error_span(@publication[:publication_type]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :start_date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :start_date, :class => 'form-control' %>
+    <div class="control-group">
+      <%= f.label :publication_type_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :publication_type_id, :class => 'form-control' %>
+      </div>
+      <%= error_span(@publication[:publication_type_id]) %>
     </div>
-    <%= error_span(@publication[:start_date]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :end_date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :end_date, :class => 'form-control' %>
+    <div class="control-group">
+      <%= f.label :property_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :property_id, :class => 'form-control' %>
+      </div>
+      <%= error_span(@publication[:property_id]) %>
     </div>
-    <%= error_span(@publication[:end_date]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :active, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :active, :class => 'form-control' %>
-    </div>
-    <%= error_span(@publication[:active]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :property_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :property_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@publication[:property_id]) %>
-  </div>
 
-
+  <br/>
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             publications_path, :class => 'btn btn-default' %>

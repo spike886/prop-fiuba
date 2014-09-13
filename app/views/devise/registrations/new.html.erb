@@ -17,8 +17,10 @@
             <%= devise_error_messages! %>
           </div>
           <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
-              <%= f.text_field :name, :autofocus => true, class: 'input-field', placeholder: "Nombre completo", required: "" %>
-              <%= f.text_field :phone, class: 'input-field', placeholder: "Telefono", required: "" %>
+              <% if f.object.class == User %>
+                  <%= f.text_field :name, :autofocus => true, class: 'input-field', placeholder: "Nombre completo", required: "" %>
+                  <%= f.text_field :phone, class: 'input-field', placeholder: "Telefono", required: "" %>
+              <% end %>
               <%= f.email_field :email, class: 'input-field', placeholder: "Correo electronico", required: "" %>
               <%= f.password_field :password, class: 'input-field', placeholder: "Contraseña", required: "" %>
               <%= f.password_field :password_confirmation, class: 'input-field', placeholder: "Verifique contraseña", required: "" %>

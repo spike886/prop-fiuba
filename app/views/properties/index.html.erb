@@ -1,14 +1,14 @@
 <%- model_class = Property -%>
-<div class="page-header">
+<div class="panel-heading">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<div class="panel-body">
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:address) %></th>
-      <th><%= model_class.human_attribute_name(:location_id) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
       <th><%= model_class.human_attribute_name(:age) %></th>
       <th><%= model_class.human_attribute_name(:rooms) %></th>
       <th><%= model_class.human_attribute_name(:bathrooms) %></th>
@@ -16,7 +16,6 @@
       <th><%= model_class.human_attribute_name(:type_of_building) %></th>
       <th><%= model_class.human_attribute_name(:covered_area) %></th>
       <th><%= model_class.human_attribute_name(:total_area) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -25,8 +24,7 @@
       <tr>
         <td><%= link_to property.id, property_path(property) %></td>
         <td><%= property.address %></td>
-        <td><%= property.location_id %></td>
-        <td><%= property.user_id %></td>
+        <td><%= property.location.try(:name) %></td>
         <td><%= property.age %></td>
         <td><%= property.rooms %></td>
         <td><%= property.bathrooms %></td>
@@ -34,7 +32,6 @@
         <td><%= property.type_of_building %></td>
         <td><%= property.covered_area %></td>
         <td><%= property.total_area %></td>
-        <td><%=l property.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_property_path(property), :class => 'btn btn-default btn-xs' %>
@@ -52,3 +49,4 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_property_path,
             :class => 'btn btn-primary' %>
+</div>

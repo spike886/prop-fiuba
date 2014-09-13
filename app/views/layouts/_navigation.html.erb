@@ -1,16 +1,13 @@
 <%# navigation styled for Bootstrap 3.0 %>
-<div class="navbar navbar-default navbar-static-top animated fadeInDown">
+<div class="navbar navbar-default navbar-static-top animated fadeInDown header-shadow">
   <div class="container">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#"><%= image_tag "logo-black.png" , style: "width: 50px;"%></a>
+    <a class="navbar-brand" href="/publications"><%= image_tag "logo-black.png" , style: "width: 50px;"%></a>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav">
-        <%= render 'layouts/navigation_links' %>
-      </ul>
       <ul class="nav navbar-nav navbar-right">
         <%= render 'layouts/right_navigation_links' %>
       </ul>

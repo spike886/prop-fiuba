@@ -24,13 +24,44 @@ body{
   color: #333;
 }
 
-.col-lg-9{
+.main-container{
   background-color:#F8F8F8;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
   padding-bottom: 20px;
 }
 
-footer{
+.footer{
   margin-top: 30px;
+  text-align: center;
+  height: 60px;
+}
+
+html,
+body {
+   height: 100%;
+   /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+.wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+.header-shadow{
+  box-shadow: 0 0 5px 4px rgba(0,0,0,0.2);
+  border: 1px rgba(0,0,0,0.1) solid;
+}
+
+.container-shadow{
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+}
+
+.flash-container .alert {
+  width: 100%;
 }

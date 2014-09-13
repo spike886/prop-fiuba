@@ -70,6 +70,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:type, :start_date, :end_date, :active, :property_id)
+      params.require(:publication).permit(:operation_type, :property_id, :publication_type_id)
     end
 end

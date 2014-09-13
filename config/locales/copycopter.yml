@@ -3,123 +3,150 @@ en:
   activerecord:
     attributes:
       image:
-        created_at: "<p>Creado a las</p>"
-        file: "<p>Imagen</p>"
-        id: "<p>id</p>"
+        created_at: "Creado a las"
+        file: "Imagen"
+        id: "id"
       property:
-        address: "<p>Address</p>"
-        age: "<p>Age</p>"
-        bathrooms: "<p>Bathrooms</p>"
-        bedrooms: "<p>Bedrooms</p>"
-        covered_area: "<p>Covered area</p>"
-        created_at: "<p>Created at</p>"
-        id: "<p>Id</p>"
-        location_id: "<p>Lacation</p>"
-        rooms: "<p>Rooms</p>"
-        total_area: "<p>Total area</p>"
-        type_of_building: "<p>Type of property</p>"
-        user_id: "<p>User</p>"
+        address: "Address"
+        age: "Age"
+        bathrooms: "Bathrooms"
+        bedrooms: "Bedrooms"
+        covered_area: "Covered area"
+        created_at: "Created at"
+        id: "Id"
+        location_id: "Lacation"
+        rooms: "Rooms"
+        total_area: "Total area"
+        type_of_building: "Type of property"
+        user_id: "User"
       publication:
-        active: "<p>Active</p>"
-        created_at: "<p>Created at</p>"
-        end_date: "<p>Ended at</p>"
-        id: "<p>Código de publicacion</p>"
-        property_id: "<p>Property</p>"
-        publication_type: "<p>Publication type</p>"
-        start_date: "<p>Started at</p>"
+        status:
+          finished: "Finalizada"
+          active: "Activa"
+          paused: "Pausada"
+        active: "Active"
+        created_at: "Created at"
+        end_date: "Ended at"
+        id: "Código de publicacion"
+        property_id: "Property"
+        publication_type: "Publication type"
+        start_date: "Started at"
       user:
-        email: "<p>Email</p>"
-        name: "<p>Name</p>"
-        phone: "<p>Phone</p>"
+        email: "Email"
+        name: "Name"
+        phone: "Phone"
+      publication_type:
+        cost:
+          zero: Gratis
+          other: '<span class="sign">$</span>%{count} <span class="month">X publicacion</span>'
+        images_count:
+          zero: "Sin imagenes"
+          one: "Una imagen"
+          other: "%{count} imagenes"
+        videos_count:
+          zero: "Sin videos"
+          one: "Un video"
+          other: "%{count} videos"
+        location: "Ubicacion"
+        description: "Descripcion"
+        stats: "Estadisticas de visitas"
+        highlight:
+          zero: "Sin destaque"
+          one: "Con destaque"
+        priority_on_search:
+          zero: "Sin destaque"
+          one: "Con destaque"
+        publication_days:
+          other: "Duracion %{count} días"
     models:
-      property: "<p>Property</p>"
-      publication: "<p>Publication</p>"
-      user: "<p>User</p>"
+      property: "Property"
+      publication: "Publication"
+      user: "User"
   app:
-    footer: '<p>Copy Right <b>MiLEEM</b><span style="font-size: 13px; line-height:
-      18.2000007629395px;"><b>®</b> 2014</span></p>'
+    footer: 'Copy Right <b>MiLEEM</b><span style="font-size: 13px; line-height:
+      18.2000007629395px;"><b>®</b> 2014</span>'
     navigation:
-      account: "<p>Account</p>"
-      logout: "<p>Logout</p>"
+      account: "Account"
+      logout: "Logout"
     sidebar:
-      subtitle: "<p>Actions</p>"
-      title: "<p>Controls</p>"
+      subtitle: "Actions"
+      title: "Controls"
     title: MiLEEM
   attributes:
-    active: "<p>Active</p>"
-    address: "<p>Address</p>"
-    age: "<p>Age</p>"
-    bathrooms: "<p>Bathrooms</p>"
-    bedrooms: "<p>Bedrooms</p>"
-    covered_area: "<p>Covered area</p>"
-    created_at: "<p>Created at</p>"
-    email: "<p>Email</p>"
-    end_date: "<p>Ended at</p>"
-    id: "<p>Identificacion</p>"
-    location_id: "<p>Location</p>"
-    name: "<p>Name</p>"
-    phone: "<p>Phone</p>"
-    property_id: "<p>Property</p>"
-    publication_type: "<p>Publication time</p>"
-    rooms: "<p>Rooms</p>"
-    start_date: "<p>Started at</p>"
-    total_area: "<p>Total area</p>"
-    type_of_building: "<p>Type of property</p>"
-    user_id: "<p>User</p>"
+    active: "Active"
+    address: "Address"
+    age: "Age"
+    bathrooms: "Bathrooms"
+    bedrooms: "Bedrooms"
+    covered_area: "Covered area"
+    created_at: "Created at"
+    email: "Email"
+    end_date: "Ended at"
+    id: "Identificacion"
+    location_id: "Location"
+    name: "Name"
+    phone: "Phone"
+    property_id: "Property"
+    publication_type: "Publication time"
+    rooms: "Rooms"
+    start_date: "Started at"
+    total_area: "Total area"
+    type_of_building: "Type of property"
+    user_id: "User"
   devise:
     failure:
       user:
-        unauthenticated: '<p><span style="font-size: 13px; line-height: 18.2000007629395px;
-          background-color: rgb(255, 255, 255);">Most login to continue.</span><br></p>'
+        unauthenticated: '<span style="font-size: 13px; line-height: 18.2000007629395px;
+          background-color: rgb(255, 255, 255);">Most login to continue.</span><br>'
     sessions:
       user:
-        signed_in: "<p>Signed in</p>"
-        signed_out: "<p>Signed out</p>"
+        signed_in: "Signed in"
+        signed_out: "Signed out"
   helpers:
     label:
       property:
-        address: "<p>Address</p>"
-        age: "<p>Age</p>"
-        bathrooms: "<p>Bathrooms</p>"
-        bedrooms: "<p>Bedrooms</p>"
-        covered_area: "<p>Covered area</p>"
-        location_id: "<p>Location</p>"
-        rooms: "<p>Rooms</p>"
-        total_area: "<p>Total area</p>"
-        type_of_building: "<p>Type of property</p>"
-        user_id: "<p>User</p>"
+        address: "Address"
+        age: "Age"
+        bathrooms: "Bathrooms"
+        bedrooms: "Bedrooms"
+        covered_area: "Covered area"
+        location_id: "Location"
+        rooms: "Rooms"
+        total_area: "Total area"
+        type_of_building: "Type of property"
+        user_id: "User"
       publication:
-        active: "<p>Active</p>"
-        end_date: "<p>End date</p>"
-        property_id: "<p>Property</p>"
-        publication_type: "<p>Publication type</p>"
-        start_date: "<p>Start date</p>"
+        active: "Active"
+        end_date: "End date"
+        property_id: "Property"
+        publication_type: "Publication type"
+        start_date: "Start date"
     submit:
       property:
-        create: "<p>Create</p>"
+        create: "Create"
       publication:
-        create: "<p>Create</p>"
+        create: "Create"
   properties:
     form:
-      cancel: "<p>Cancel</p>"
+      cancel: "Cancel"
     index:
-      actions: "<p>Actions</p>"
-      new: "<p>New</p>"
-      title: "<p>Properties</p>"
+      actions: "Actions"
+      new: "New"
+      title: "Properties"
     new:
-      title: "<p>New property</p>"
+      title: "New property"
   publications:
     form:
-      cancel: "<p>Cancel</p>"
+      cancel: "Cancel"
     index:
-      actions: "<p>Actions</p>"
-      new: "<p>New</p>"
-      title: "<p>Index</p>"
+      actions: "Actions"
+      new: "New"
+      title: "Index"
     new:
-      title: "<p>New publication</p>"
+      title: "New publication"
   users:
     index:
-      title: "<p>Users</p>"
+      title: "Users"
 es:
   activerecord:
     attributes:
@@ -181,6 +208,29 @@ es:
         reset_password_token: Reset password token
         sign_in_count: Sign in count
         updated_at: Updated at
+      publication_type:
+        cost:
+          zero: Gratis
+          other: '<span class="sign">$</span>%{count} <span class="month">X publicacion</span>'
+        images_count:
+          zero: "Sin imagenes"
+          one: "Una imagen"
+          other: "%{count} imagenes"
+        videos_count:
+          zero: "Sin videos"
+          one: "Un video"
+          other: "%{count} videos"
+        location: "Ubicacion"
+        description: "Descripcion"
+        stats: "Estadisticas de visitas"
+        highlight:
+          zero: "Sin destaque"
+          one: "Con destaque"
+        priority_on_search:
+          zero: "Sin prioridad en la busqueda"
+          one: "Con prioridad en la busqueda"
+        publication_days:
+          other: "Duracion %{count} días"
     models:
       image: Imagen
       location: Ubicacion
@@ -211,34 +261,34 @@ es:
     misc:
       filter_date_format: mm/dd/yy
   app:
-    footer: '<p>Derechos reservados&nbsp;<b>MiLEEM</b><span style="font-size: 13px;
-      line-height: 18.2000007629395px;"><b>®</b> 2014</span></p>'
+    footer: 'Derechos reservados&nbsp;<b>MiLEEM</b><span style="font-size: 13px;
+      line-height: 18.2000007629395px;"><b>®</b> 2014</span>'
     navigation:
-      account: "<p>Cuenta</p>"
-      logout: "<p>Salir</p>"
+      account: "Cuenta"
+      logout: "Salir"
     sidebar:
-      subtitle: "<p>Acciones</p>"
-      title: "<p>Controles</p>"
+      subtitle: "Acciones"
+      title: "Controles"
     title: MiLEEM
   attributes:
-    active: "<p>activo?</p>"
-    address: "<p>Direccion</p>"
-    age: "<p>Antiguedad</p>"
-    bathrooms: "<p>Baños</p>"
-    bedrooms: "<p>Habitaciones</p>"
-    covered_area: "<p>Área cubierta</p>"
-    email: "<p>Correo electronico</p>"
-    end_date: "<p>Fecha de fin</p>"
-    location_id: "<p>Ubicacion</p>"
-    name: "<p>Nombre</p>"
-    phone: "<p>Telefono</p>"
-    publication_type: "<p>Tipo de Publicacion</p>"
-    rooms: "<p>Ambientes</p>"
-    start_date: "<p>Fecha de inicio</p>"
-    total_area: "<p>Área total</p>"
-    type_of_building: "<p>Tipo de propiedad</p>"
-    updated_at: "<p>Actualizado a las</p>"
-    user_id: "<p>Usuario</p>"
+    active: "activo?"
+    address: "Direccion"
+    age: "Antiguedad"
+    bathrooms: "Baños"
+    bedrooms: "Habitaciones"
+    covered_area: "Área cubierta"
+    email: "Correo electronico"
+    end_date: "Fecha de fin"
+    location_id: "Ubicacion"
+    name: "Nombre"
+    phone: "Telefono"
+    publication_type: "Tipo de Publicacion"
+    rooms: "Ambientes"
+    start_date: "Fecha de inicio"
+    total_area: "Área total"
+    type_of_building: "Tipo de propiedad"
+    updated_at: "Actualizado a las"
+    user_id: "Usuario"
   devise:
     failure:
       user:
@@ -250,22 +300,22 @@ es:
   helpers:
     label:
       property:
-        address: "<p>Direccion</p>"
-        age: "<p>Antiguedad</p>"
-        bathrooms: "<p>Baños</p>"
-        bedrooms: "<p>Habitaciones</p>"
-        covered_area: "<p>Área cubierta</p>"
-        location_id: "<p>Ubicacion</p>"
-        rooms: "<p>Ambientes</p>"
-        total_area: "<p>Área total</p>"
-        type_of_building: "<p>Tipo de propiedad</p>"
-        user_id: "<p>Usuario</p>"
+        address: "Direccion"
+        age: "Antiguedad"
+        bathrooms: "Baños"
+        bedrooms: "Habitaciones"
+        covered_area: "Área cubierta"
+        location_id: "Ubicacion"
+        rooms: "Ambientes"
+        total_area: "Área total"
+        type_of_building: "Tipo de propiedad"
+        user_id: "Usuario"
       publication:
-        active: "<p>Activo</p>"
-        end_date: "<p>Fecha de finalizacion</p>"
-        property_id: "<p>Property</p>"
-        publication_type: "<p>Publication type</p>"
-        start_date: "<p>Fecha de inicio</p>"
+        active: "Activo"
+        end_date: "Fecha de finalizacion"
+        property_id: "Property"
+        publication_type: "Publication type"
+        start_date: "Fecha de inicio"
     submit:
       property:
         create: Crear

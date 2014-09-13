@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907185711) do
+ActiveRecord::Schema.define(version: 20140913033428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "images", force: true do |t|
     t.datetime "created_at"
@@ -52,8 +70,19 @@ ActiveRecord::Schema.define(version: 20140907185711) do
   add_index "properties", ["location_id"], name: "index_properties_on_location_id", using: :btree
   add_index "properties", ["user_id"], name: "index_properties_on_user_id", using: :btree
 
+  create_table "publication_types", force: true do |t|
+    t.string   "name"
+    t.integer  "publication_days"
+    t.integer  "images_count"
+    t.integer  "videos_count"
+    t.decimal  "cost"
+    t.boolean  "priority_on_search"
+    t.boolean  "highlight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "publications", force: true do |t|
-    t.string   "publication_type"
     t.date     "start_date"
     t.date     "end_date"
     t.boolean  "active"
@@ -61,9 +90,12 @@ ActiveRecord::Schema.define(version: 20140907185711) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "operation_type"
+    t.integer  "publication_type_id"
   end
 
   add_index "publications", ["property_id"], name: "index_publications_on_property_id", using: :btree
+  add_index "publications", ["publication_type_id"], name: "index_publications_on_publication_type_id", using: :btree
   add_index "publications", ["user_id"], name: "index_publications_on_user_id", using: :btree
 
   create_table "users", force: true do |t|

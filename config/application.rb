@@ -29,11 +29,15 @@ module Prop
 
     config.to_prepare do
       Devise::SessionsController.layout "devise"
-      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application"   : "devise" }
+      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? || admin_signed_in? ? "application"   : "devise" }
       Devise::ConfirmationsController.layout "devise"
       Devise::UnlocksController.layout "devise"
       Devise::PasswordsController.layout "devise"
     end
+
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance|
+      "<div class=\"control-group has-error\">#{html_tag}</div>".html_safe
+    }
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

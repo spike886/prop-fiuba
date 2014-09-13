@@ -123,7 +123,7 @@
       </div> <!-- /END ONLY LOGO ON HEADER -->
 
 
-      <a href="users/" class="btn btn-success btn-lg" style="padding: 15px; padding-left: 50px; padding-right: 50px;">INGRESAR</a>
+      <a href="publications/" class="btn btn-success btn-lg" style="padding: 15px; padding-left: 50px; padding-right: 50px;">INGRESAR</a>
 
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -410,7 +410,7 @@
           Si tenes alguna propiedad a la venta o en alquiler, unite a nuestra pagina y publica gratis de forma facil y rápida
         </p>
         <br/>
-        <a href="users/sing_up" class="btn btn-default btn-lg standard-button">Registrarse</a>
+        <a href="/users/sign_up" class="btn btn-default btn-lg standard-button">Registrarse</a>
         <br/>
         <br/>
         <br/>
@@ -564,95 +564,8 @@
       </div>
     </div>
     <!-- /END SECTION HEADER -->
-
     <div class="row">
-
-      <!-- SINGLE PACKACGE -->
-      <div class="col-md-4 col-sm-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s" style="visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;">
-
-        <div class="single-package">
-
-          <h3 class="package-heading main-color">
-            Estandar </h3>
-
-          <div class="price">
-            <h2><span class="sign"></span>Gratis</h2>
-          </div>
-
-          <ul class="package-feature">
-            <li><span class="main-color icon_check_alt2"></span>3 Imagenes</li>
-            <li><span class="main-color icon_check_alt2"></span>Ubicacion</li>
-            <li><span class="main-color icon_check_alt2"></span>Descripcion</li>
-            <li><span class="main-color icon_check_alt2"></span>Estadisticas de uso</li>
-            <li><span class="main-color icon_close_alt2" style="color: #ac2925"></span>Sin videos</li>
-            <li><span class="main-color icon_close_alt2" style="color: #ac2925"></span>Sin destaque</li>
-            <li><span class="main-color icon_close_alt2" style="color: #ac2925"></span>Sin prioridad</li>
-            <li><span class="main-color icon_close_alt2" style="color: #ac2925"></span>Con publicidad</li>
-            <li><span class="green-color icon_clock"></span>Duracion 30 días</li>
-          </ul>
-
-        </div>
-      </div>
-      <!-- /END SINGLE PACKACGE -->
-
-      <!-- SINGLE PACKACGE -->
-      <div class="col-md-4 col-sm-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s" style="visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;">
-
-        <div class="single-package">
-
-          <h3 class="package-heading main-color">
-            Básica </h3>
-
-          <div class="price">
-            <div class="color-bg">
-              <h2><span class="sign">$</span>50 <span class="month">X publicacion</span></h2>
-            </div>
-          </div>
-
-          <ul class="package-feature">
-            <li><span class="main-color icon_check_alt2"></span>6 Imagenes</li>
-            <li><span class="main-color icon_check_alt2"></span>Ubicacion</li>
-            <li><span class="main-color icon_check_alt2"></span>Descripcion</li>
-            <li><span class="main-color icon_check_alt2"></span>Estadisticas de uso</li>
-            <li><span class="main-color icon_check_alt2"></span>Sin publicidad</li>
-            <li><span class="main-color icon_check_alt2"></span>Un video</li>
-            <li><span class="main-color icon_check_alt2"></span>Con prioridad</li>
-            <li><span class="icon_close_alt2" style="color: #ac2925"></span>Sin destaque</li>
-            <li><span class="green-color icon_clock"></span>Duracion 3 Meses</li>
-          </ul>
-
-        </div>
-      </div>
-      <!-- /END SINGLE PACKACGE -->
-
-      <!-- SINGLE PACKACGE -->
-      <div class="col-md-4 col-sm-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s" style="visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;">
-
-        <div class="single-package">
-
-          <h3 class="package-heading main-color">
-            Premiun </h3>
-
-          <div class="price">
-            <h2><span class="sign">$</span>99 <span class="month">X publicacion</span></h2>
-          </div>
-
-
-          <ul class="package-feature">
-            <li><span class="main-color icon_check_alt2"></span>12 Imagenes</li>
-            <li><span class="main-color icon_check_alt2"></span>Ubicacion</li>
-            <li><span class="main-color icon_check_alt2"></span>Descripcion</li>
-            <li><span class="main-color icon_check_alt2"></span>Estadisticas de uso</li>
-            <li><span class="main-color icon_check_alt2"></span>Sin publicidad</li>
-            <li><span class="main-color icon_check_alt2"></span>3 videos</li>
-            <li><span class="main-color icon_check_alt2"></span>Con prioridad</li>
-            <li><span class="main-color icon_check_alt2"></span>Con destaque</li>
-            <li><span class="green-color icon_clock"></span>Duracion 12 Meses</li>
-          </ul>
-        </div>
-      </div>
-      <!-- /END SINGLE PACKACGE -->
-
+      <%= render partial: "publication_types/publication_type", collection: PublicationType.all %>
     </div>
     <!-- /END ROW -->
 
