@@ -36,28 +36,33 @@ en:
         name: "Name"
         phone: "Phone"
       publication_type:
-        cost:
+        cost: Costo por publicacion
+        cost_val:
           zero: Gratis
           other: '<span class="sign">$</span>%{count} <span class="month">X publicacion</span>'
-        images_count:
+        images_count: Cantidad de imagenes
+        images_count_val:
           zero: "Sin imagenes"
           one: "Una imagen"
           other: "%{count} imagenes"
-        videos_count:
+        videos_count: Cantidad de videos
+        videos_count_val:
           zero: "Sin videos"
           one: "Un video"
           other: "%{count} videos"
         location: "Ubicacion"
         description: "Descripcion"
         stats: "Estadisticas de visitas"
-        highlight:
+        highlight: Destacado
+        highlight_val:
           zero: "Sin destaque"
           one: "Con destaque"
-        priority_on_search:
-          zero: "Sin destaque"
-          one: "Con destaque"
-        publication_days:
-          other: "Duracion %{count} días"
+        priority_on_search: Con prioridad en las busquedas
+        priority_on_search_val:
+          zero: "Sin prioridad en la busqueda"
+          one: "Con prioridad en la busqueda"
+        publication_days: Duracion de la publicacion en dias
+        publication_days_val: "Duracion %{count} días"
     models:
       property: "Property"
       publication: "Publication"
@@ -209,28 +214,33 @@ es:
         sign_in_count: Sign in count
         updated_at: Updated at
       publication_type:
-        cost:
+        cost: Costo por publicacion
+        cost_val:
           zero: Gratis
           other: '<span class="sign">$</span>%{count} <span class="month">X publicacion</span>'
-        images_count:
+        images_count: Cantidad de imagenes
+        images_count_val:
           zero: "Sin imagenes"
           one: "Una imagen"
           other: "%{count} imagenes"
-        videos_count:
+        videos_count: Cantidad de videos
+        videos_count_val:
           zero: "Sin videos"
           one: "Un video"
           other: "%{count} videos"
         location: "Ubicacion"
         description: "Descripcion"
         stats: "Estadisticas de visitas"
-        highlight:
+        highlight: Destacado
+        highlight_val:
           zero: "Sin destaque"
           one: "Con destaque"
-        priority_on_search:
+        priority_on_search: Con prioridad en las busquedas
+        priority_on_search_val:
           zero: "Sin prioridad en la busqueda"
           one: "Con prioridad en la busqueda"
-        publication_days:
-          other: "Duracion %{count} días"
+        publication_days: Duracion de la publicacion en dias
+        publication_days_val: "Duracion %{count} días"
     models:
       image: Imagen
       location: Ubicacion
