@@ -25,6 +25,7 @@ class PublicationsController < ApplicationController
   # POST /publications.json
   def create
     @publication = Publication.new(publication_params)
+    @publication.user= current_user
 
     respond_to do |format|
       if @publication.save
