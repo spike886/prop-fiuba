@@ -1,0 +1,16 @@
+<div class="control-group">
+  <%= f.label characteristic.name, :class => 'control-label' %>
+  <div class="controls">
+    <% case characteristic.characteristic_type %>
+    <% when "CharacteristicInstance::Boolean" %>
+        <%= check_box_tag "[property[characteristics][]", false, :class => 'form-control' %>
+    <% when "CharacteristicInstance::Integer" %>
+        <%= number_field_tag "[property[characteristics][]", 0, :class => 'form-control', step: 1 %>
+    <% when "CharacteristicInstance::String" %>
+        <%= text_field_tag "[property[characteristics][]", "", :class => 'form-control' %>
+    <% when "CharacteristicInstance::Values" %>
+        <%= select_tag "[property[characteristics][]", "", characteristic.value.split(",").map{|v| [v,v]}, {prompt: "Seleccione..."}, :class => 'form-control' %>
+    <% end%>
+  </div>
+  <%= error_span(@property[:location_id]) %>
+</div>

@@ -25,14 +25,14 @@
     <div class="control-group">
       <%= f.label :publication_type_id, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :publication_type_id, :class => 'form-control' %>
+        <%= f.select :publication_type_id, PublicationType.all.map{|t|[t.name, t.id]}, {prompt: "Seleccione..."}, :class => 'form-control' %>
       </div>
       <%= error_span(@publication[:publication_type_id]) %>
     </div>
     <div class="control-group">
       <%= f.label :property_id, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :property_id, :class => 'form-control' %>
+        <%= f.select :property_id, Property.all.map{|t|[t.id, t.id]}, {prompt: "Seleccione..."}, :class => 'form-control' %>
       </div>
       <%= error_span(@publication[:property_id]) %>
     </div>

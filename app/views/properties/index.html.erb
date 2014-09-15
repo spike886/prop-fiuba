@@ -7,15 +7,8 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
       <th><%= model_class.human_attribute_name(:location) %></th>
-      <th><%= model_class.human_attribute_name(:age) %></th>
-      <th><%= model_class.human_attribute_name(:rooms) %></th>
-      <th><%= model_class.human_attribute_name(:bathrooms) %></th>
-      <th><%= model_class.human_attribute_name(:bedrooms) %></th>
-      <th><%= model_class.human_attribute_name(:type_of_building) %></th>
-      <th><%= model_class.human_attribute_name(:covered_area) %></th>
-      <th><%= model_class.human_attribute_name(:total_area) %></th>
+      <th><%= model_class.human_attribute_name(:property_type_id) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -23,15 +16,8 @@
     <% @properties.each do |property| %>
       <tr>
         <td><%= link_to property.id, property_path(property) %></td>
-        <td><%= property.address %></td>
         <td><%= property.location.try(:name) %></td>
-        <td><%= property.age %></td>
-        <td><%= property.rooms %></td>
-        <td><%= property.bathrooms %></td>
-        <td><%= property.bedrooms %></td>
-        <td><%= property.type_of_building %></td>
-        <td><%= property.covered_area %></td>
-        <td><%= property.total_area %></td>
+        <td><%= property.property_type.try(:name) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_property_path(property), :class => 'btn btn-default btn-xs' %>

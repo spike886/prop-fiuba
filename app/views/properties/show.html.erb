@@ -5,26 +5,10 @@
 
 <div class="panel-body">
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
-  <dd><%= @property.address %></dd>
   <dt><strong><%= model_class.human_attribute_name(:location_id) %>:</strong></dt>
-  <dd><%= @property.location_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @property.user_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:age) %>:</strong></dt>
-  <dd><%= @property.age %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:rooms) %>:</strong></dt>
-  <dd><%= @property.rooms %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:bathrooms) %>:</strong></dt>
-  <dd><%= @property.bathrooms %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:bedrooms) %>:</strong></dt>
-  <dd><%= @property.bedrooms %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:type_of_building) %>:</strong></dt>
-  <dd><%= @property.type_of_building %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:covered_area) %>:</strong></dt>
-  <dd><%= @property.covered_area %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:total_area) %>:</strong></dt>
-  <dd><%= @property.total_area %></dd>
+  <dd><%= @property.location.try(:name) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:property_type_id) %>:</strong></dt>
+  <dd><%= @property.property_type.try(:name) %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

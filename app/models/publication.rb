@@ -7,6 +7,8 @@ class Publication < ActiveRecord::Base
 
   validates :property_id, :user_id, :publication_type_id, :operation_type, presence: true
 
+  validates :operation_type, inclusion: {in: OPERATION_TYPES}
+
   before_create :initialize_dates
 
   def state
