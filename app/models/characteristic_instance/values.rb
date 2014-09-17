@@ -1,3 +1,3 @@
 class CharacteristicInstance::Values < CharacteristicInstance
-  validates :string.values, presence: true
+  validates :values, presence: true
 end

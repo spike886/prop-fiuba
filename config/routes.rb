@@ -15,9 +15,7 @@ Rails.application.routes.draw do
     config.route_drawer = HighVoltage::RouteDrawers::Root
   end
 
-  namespace :api do
-    resources :publications, only: [:index, :show]
-  end
+  mount Twitter::API => '/api/'
 
   get "/translate", to: redirect("http://stark-cliffs-2158.herokuapp.com/projects/1")
 end
