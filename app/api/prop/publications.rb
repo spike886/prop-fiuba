@@ -7,7 +7,7 @@ module Prop
       # GET /publications
       desc "Returns all the publications info"
       paginate per_page: PAGE_SIZE
-      get do
+      get "", each_serializer: PublicationIndexSerializer do
         paginate Publication
       end
 

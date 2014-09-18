@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915074935) do
+ActiveRecord::Schema.define(version: 20140918023141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,9 @@ ActiveRecord::Schema.define(version: 20140915074935) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "property_type_id"
+    t.string   "address"
+    t.decimal  "longitude",        precision: 10, scale: 6
+    t.decimal  "latitude",         precision: 10, scale: 6
   end
 
   add_index "properties", ["location_id"], name: "index_properties_on_location_id", using: :btree
@@ -125,6 +128,8 @@ ActiveRecord::Schema.define(version: 20140915074935) do
     t.integer  "user_id"
     t.string   "operation_type"
     t.integer  "publication_type_id"
+    t.integer  "price"
+    t.string   "currency"
   end
 
   add_index "publications", ["property_id"], name: "index_publications_on_property_id", using: :btree
@@ -150,5 +155,14 @@ ActiveRecord::Schema.define(version: 20140915074935) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "videos", force: true do |t|
+    t.string   "url"
+    t.integer  "property_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "videos", ["property_id"], name: "index_videos_on_property_id", using: :btree
 
 end

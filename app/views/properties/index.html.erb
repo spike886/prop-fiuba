@@ -8,7 +8,8 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:location) %></th>
-      <th><%= model_class.human_attribute_name(:property_type_id) %></th>
+      <th><%= model_class.human_attribute_name(:property_type) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= link_to property.id, property_path(property) %></td>
         <td><%= property.location.try(:name) %></td>
         <td><%= property.property_type.try(:name) %></td>
+        <td><%= property.address %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_property_path(property), :class => 'btn btn-default btn-xs' %>

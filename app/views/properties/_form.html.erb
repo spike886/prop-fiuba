@@ -28,6 +28,13 @@
     </div>
     <%= error_span(@property[:property_type_id]) %>
   </div>
+    <div class="control-group">
+      <%= f.label :address, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :address, :class => 'form-control' %>
+      </div>
+      <%= error_span(@property[:property_type_id]) %>
+    </div>
   <%= render Characteristic.all, f: f %>
   <br/>
   <%= f.submit nil, :class => 'btn btn-primary' %>

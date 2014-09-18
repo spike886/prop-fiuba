@@ -2,10 +2,12 @@ class Publication < ActiveRecord::Base
   belongs_to :property
   belongs_to :user
   belongs_to :publication_type
+  has_one :location, through: :property
 
   OPERATION_TYPES = ["Venta", "Alquiler", "Alquiler temporal"]
+  CURRENCY = ["$", "u$s"]
 
-  validates :property_id, :user_id, :publication_type_id, :operation_type, presence: true
+  validates :property_id, :user_id, :publication_type_id, :operation_type, :currency, :price, presence: true
 
   validates :operation_type, inclusion: {in: OPERATION_TYPES}
 
@@ -19,6 +21,14 @@ class Publication < ActiveRecord::Base
     else
       "paused"
     end
+  end
+
+  def price_with_currency
+    "#{currency}#{price}"
+  end
+
+  def highlight
+    publication_type.highlight
   end
 
   private #==========================================================
