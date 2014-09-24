@@ -1,3 +1,3 @@
 class CharacteristicInstanceSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :value, :characteristic_type
 end

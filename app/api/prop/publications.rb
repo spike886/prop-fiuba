@@ -8,7 +8,7 @@ module Prop
       desc "Returns all the publications info"
       paginate per_page: PAGE_SIZE
       get "", each_serializer: PublicationIndexSerializer do
-        paginate Publication
+        paginate Publication.actives
       end
 
       # Get /publications/:id

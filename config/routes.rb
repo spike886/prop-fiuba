@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   devise_for :users
   authenticate :user do
     resources :users
-    resources :publications
+    resources :publications do
+      resource :build, controller: 'publications/build'
+    end
     resources :properties
   end
   HighVoltage.configure do |config|

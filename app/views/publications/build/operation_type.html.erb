@@ -1,0 +1,9 @@
+<%= render "wizard_header" %>
+<% Publication::OPERATION_TYPES.each do |operation| %>
+    <%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal publication" } do |f| %>
+        <%= f.hidden_field :operation_type, value: operation %>
+        <%= f.submit operation, :class => 'btn btn-primary' %>
+
+    <% end %>
+<% end %>
+<%= render "wizard_footer" %>

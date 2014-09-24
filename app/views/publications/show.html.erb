@@ -5,16 +5,41 @@
 
 <div class="panel-body">
 <dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:operation_type) %>:</strong></dt>
+  <dd><%= @publication.operation_type %></dd>
   <dt><strong><%= model_class.human_attribute_name(:publication_type) %>:</strong></dt>
-  <dd><%= @publication.publication_type %></dd>
+  <dd><%= @publication.publication_type.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:property_type) %>:</strong></dt>
+  <dd><%= @publication.property.property_type.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
   <dd><%= @publication.start_date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
   <dd><%= @publication.end_date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:active) %>:</strong></dt>
   <dd><%= @publication.active %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:property_id) %>:</strong></dt>
-  <dd><%= @publication.property_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:images) %>:</strong></dt>
+  <% @publication.property.images.each do |image| %>
+    <dd><%= image_tag image.file.url %></dd>
+  <% end %>
+  <dt><strong><%= model_class.human_attribute_name(:videos) %>:</strong></dt>
+  <% @publication.property.videos.each do |video| %>
+    <dd><%= link_to video.url, video.url %></dd>
+  <% end %>
+  <% @publication.property.characteristic_instances.each do |instance| %>
+    <dt><strong><%= instance.characteristic.name %>:</strong></dt>
+      <dd>
+      <% case instance.type %>
+      <% when "CharacteristicInstance::Boolean" %>
+          <%= instance.boolean %>
+      <% when "CharacteristicInstance::Integer" %>
+          <%= instance.integer %>
+      <% when "CharacteristicInstance::String" %>
+          <%= instance.string %>
+      <% when "CharacteristicInstance::Values" %>
+          <%= instance.values %>
+      <% end%>
+      </dd>
+  <% end %>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

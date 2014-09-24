@@ -1,0 +1,37 @@
+<%= render "wizard_header" %>
+<%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal publication" } do |f| %>
+
+    <div class="control-group">
+      <%= f.label :price, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :price, :class => 'form-control' %>
+        <%= f.select :currency, Publication::CURRENCY.map{|t|[t, t]},{}, :class => 'form-control' %>
+      </div>
+      <%= error_span(@publication[:price]) %>
+      <%= error_span(@publication[:currency]) %>
+    </div>
+
+    <%= f.fields_for :property do |ff| %>
+
+        <div class="control-group">
+          <%= ff.label :address, :class => 'control-label' %>
+          <div class="controls">
+            <%= ff.text_field :address, :class => 'form-control' %>
+          </div>
+          <%= error_span(@publication.property[:address]) %>
+        </div>
+        <div class="control-group">
+          <%= ff.label :location_id, :class => 'control-label' %>
+          <div class="controls">
+            <%= ff.select :location_id, Location.all.map{|t|[t.name, t.id]}, {prompt: "Seleccione..."}, :class => 'form-control' %>
+          </div>
+          <%= error_span(@publication.property[:location_id]) %>
+        </div>
+
+    <% end %>
+
+
+
+    <%= f.submit 'Siguiente', :class => 'btn btn-primary' %>
+<% end %>
+<%= render "wizard_footer" %>

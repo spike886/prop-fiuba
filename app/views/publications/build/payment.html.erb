@@ -1,0 +1,5 @@
+<%= render "wizard_header" %>
+<%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal publication" } do |f| %>
+    <%= f.submit 'Terminar', :class => 'btn btn-primary' %>
+<% end %>
+<%= render "wizard_footer" %>

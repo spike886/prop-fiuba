@@ -44,6 +44,7 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_publication_path,
+            publication_build_path(publication_id: 'new'),
+            method: :post,
             :class => 'btn btn-primary' %>
 </div>

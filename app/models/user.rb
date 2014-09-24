@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :properties
-  has_many :publications
+  has_many :properties, inverse_of: :user
+  has_many :publications, inverse_of: :user
 end

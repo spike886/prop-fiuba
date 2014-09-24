@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918023141) do
+ActiveRecord::Schema.define(version: 20140920175610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20140918023141) do
     t.integer  "publication_type_id"
     t.integer  "price"
     t.string   "currency"
+    t.string   "status",              default: ""
   end
 
   add_index "publications", ["property_id"], name: "index_publications_on_property_id", using: :btree

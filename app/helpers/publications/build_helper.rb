@@ -1,0 +1,2 @@
+module Publications::BuildHelper
+end

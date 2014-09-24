@@ -1,0 +1,11 @@
+<%= render "wizard_header" %>
+<% property_types= PropertyType.all %>
+<% property_types.each do |type| %>
+  <%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal publication" } do |f| %>
+      <%= f.fields_for :property do |ff| %>
+          <%= ff.hidden_field :property_type_id, value: type.to_param %>
+      <% end %>
+      <%= f.submit type.name, :class => 'btn btn-primary' %>
+  <% end %>
+<% end %>
+<%= render "wizard_footer" %>

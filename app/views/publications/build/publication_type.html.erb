@@ -1,0 +1,15 @@
+<%= render "wizard_header" %>
+<% publication_types= PublicationType.all %>
+<div class="row">
+<% publication_types.each_with_index do |type, index| %>
+        <%= render layout: 'publication_types/publication_type', locals: {publication_type: type, publication_type_counter: index} do %>
+
+            <%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal publication" } do |f| %>
+            <%= f.hidden_field :publication_type_id, value: type.to_param %>
+            <%= f.submit 'Usar', :class => 'btn btn-primary' %>
+
+            <% end %>
+        <% end %>
+<% end %>
+</div>
+<%= render "wizard_footer" %>

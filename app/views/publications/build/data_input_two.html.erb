@@ -1,0 +1,13 @@
+<%= render "wizard_header" %>
+<%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal publication" } do |f| %>
+
+    <%= f.fields_for :property do |ff| %>
+        <%= ff.fields_for :characteristic_instances do |fff| %>
+          <%= render partial: "characteristic_instance/#{fff.object.characteristic.characteristic_type.downcase}",
+                     locals: {characteristic_instance: fff.object, f: fff} %>
+        <% end %>
+    <% end %>
+
+    <%= f.submit 'Siguiente', :class => 'btn btn-primary' %>
+<% end %>
+<%= render "wizard_footer" %>

@@ -28,6 +28,7 @@ gem 'grape-swagger'
 gem 'grape-kaminari'
 gem 'api-pagination'
 gem 'rack'
+gem 'wicked'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
