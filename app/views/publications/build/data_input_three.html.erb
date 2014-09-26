@@ -14,6 +14,13 @@
     <%= f.fields_for :property do |ff| %>
 
         <div class="control-group">
+          <%= ff.label :description, :class => 'control-label' %>
+          <div class="controls">
+            <%= ff.text_area :description, :class => 'form-control' %>
+          </div>
+          <%= error_span(@publication.property[:description]) %>
+        </div>
+        <div class="control-group">
           <%= ff.label :address, :class => 'control-label' %>
           <div class="controls">
             <%= ff.text_field :address, :class => 'form-control' %>

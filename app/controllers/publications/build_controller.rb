@@ -2,7 +2,7 @@ class Publications::BuildController < ApplicationController
   include Wicked::Wizard
 
   steps :operation_type, :publication_type, :property_type,
-       :data_input_one, :data_input_two, :data_input_three, :payment
+       :data_input_two, :data_input_three, :data_input_one, :payment
 
   before_action :set_publication, only: [:show, :update]
 
@@ -40,7 +40,7 @@ class Publications::BuildController < ApplicationController
         permit(:operation_type, :property_id, :publication_type_id, :currency,
                :price, :status, property_attributes:
             [
-                :id, :property_type_id, :address, :location_id,
+                :id, :property_type_id, :address, :location_id, :description,
                 images_attributes:
                     [
                         :id, :file
@@ -81,5 +81,6 @@ class Publications::BuildController < ApplicationController
   def set_publication
     @publication = Publication.find(params[:publication_id])
     @publication.build_property(user: current_user) unless @publication.property
+    @first = (step == steps.first)
   end
 end

@@ -1,0 +1,4 @@
+<%= link_to t('.back', :default => t("helpers.links.back")),
+            previous_wizard_path, :class => 'btn btn-default' unless @first%>
+<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            publications_path, :class => 'btn btn-danger' %>

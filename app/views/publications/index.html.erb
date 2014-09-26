@@ -2,16 +2,29 @@
 <div class="panel-heading">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<%= search_form_for @search do |f| %>
+    <div class="field">
+      <%= f.label :price_gteq, "Price between" %>
+      <%= f.text_field :price_gteq %>
+      <%= f.label :price_lteq, "and" %>
+      <%= f.text_field :price_lteq %>
+    </div>
+    <div class="field">
+      <%= f.label :property_address_cont, "Address" %>
+      <%= f.text_field :property_address_cont %>
+    </div>
+    <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
 <div class="panel-body">
 <table class=" table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:operation_type) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
-      <th><%= model_class.human_attribute_name(:state) %></th>
-      <th><%= model_class.human_attribute_name(:start_date) %></th>
-      <th><%= model_class.human_attribute_name(:end_date) %></th>
-      <th><%= model_class.human_attribute_name(:publication_type) %></th>
+      <th><%= sort_link @search, :operation_type, model_class.human_attribute_name(:operation_type) %></th>
+      <th><%= sort_link @search, :property_address, model_class.human_attribute_name(:address) %></th>
+      <th><%= sort_link @search, :active, model_class.human_attribute_name(:state) %></th>
+      <th><%= sort_link @search, :price, model_class.human_attribute_name(:price) %></th>
+      <th><%= sort_link @search, :end_date, model_class.human_attribute_name(:end_date) %></th>
+      <th><%= sort_link @search, :publication_type, model_class.human_attribute_name(:publication_type) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -21,7 +34,7 @@
         <td><%= publication.operation_type %></td>
         <td><%= publication.property.try(:address) %></td>
         <td><%= state_tag publication.state %></td>
-        <td><%= publication.start_date %></td>
+        <td><%= publication.price_with_currency %></td>
         <td><%= publication.end_date %></td>
         <td><%= publication.publication_type.name %></td>
         <td>

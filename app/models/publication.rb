@@ -4,11 +4,12 @@ class Publication < ActiveRecord::Base
   belongs_to :publication_type, inverse_of: :publications
   has_one :location, through: :property
 
-  OPERATION_TYPES = ["Venta", "Alquiler", "Alquiler temporal"]
+  OPERATION_TYPES = ["Venta", "Alquiler", "Alquiler temporal", "Tiempo Compartido"]
   CURRENCY = ["$", "u$s"]
 
   scope :wizard_finished, -> { where(status: 'active') }
   scope :actives, -> { where(status: 'active').where("end_date > ?",Time.zone.now) }
+  scope :sort_by_priority, -> { joins(:publication_type).order("publication_types.priority_on_search DESC") }
 
   accepts_nested_attributes_for :property, update_only: true
 

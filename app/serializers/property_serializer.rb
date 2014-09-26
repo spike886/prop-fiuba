@@ -1,5 +1,5 @@
 class PropertySerializer < ActiveModel::Serializer
-  attributes :address
+  attributes :address, :description, :longitude, :latitude
   has_many :characteristic_instances, serializer: CharacteristicInstanceSerializer
   has_many :images
   has_many :videos

@@ -4,7 +4,9 @@ class PublicationsController < ApplicationController
        # GET /publications
   # GET /publications.json
   def index
-    @publications = Publication.wizard_finished.all
+    @search = Publication.wizard_finished.search(params[:q])
+    @publications = @search.result
+    @search.build_sort if @search.sorts.empty?
   end
 
   # GET /publications/1

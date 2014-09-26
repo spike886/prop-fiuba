@@ -15,12 +15,13 @@ class Property < ActiveRecord::Base
   validates :user, presence: true
   validates :property_type, presence: true, if: :active_or_property_type?
   validates :characteristic_instances, presence: true, if: :active_or_data_input_two?
-  validates_associated :characteristic_instances, if: :active_or_data_input_two?
+#  validates_associated :characteristic_instances, if: :active_or_data_input_two?
   validates :images, presence: true, if: :active_or_data_input_one?
   validates_associated :images, if: :active_or_data_input_one?
   validates_associated :videos, if: :active_or_data_input_one?
   validates :address, presence: true, if: :active_or_data_input_three?
-  validates :location, :images, presence: true, if: :active_or_data_input_three?
+  validates :location, presence: true, if: :active_or_data_input_three?
+  validates :description, presence: true, if: :active_or_data_input_three?
 
   def active_or_property_type?
     publications.last.try(:active_or_property_type?)
