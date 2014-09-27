@@ -7,6 +7,7 @@ class PublicationsController < ApplicationController
     @search = Publication.wizard_finished.search(params[:q])
     @publications = @search.result
     @search.build_sort if @search.sorts.empty?
+    @publications = @publications.page params[:page]
   end
 
   # GET /publications/1

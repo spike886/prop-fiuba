@@ -11,12 +11,20 @@
   <dd><%= @publication.publication_type.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:property_type) %>:</strong></dt>
   <dd><%= @publication.property.property_type.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+  <dd><%= @publication.price_with_currency %></dd>
+  <dt><strong><%= Property.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @publication.property.address %></dd>
+  <dt><strong><%= Property.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @publication.property.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
+  <dd><%= t @publication.state %></dd>
+  <dt><strong><%= Property.human_attribute_name(:location_id) %>:</strong></dt>
+  <dd><%= @publication.property.location.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
   <dd><%= @publication.start_date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
   <dd><%= @publication.end_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:active) %>:</strong></dt>
-  <dd><%= @publication.active %></dd>
   <dt><strong><%= model_class.human_attribute_name(:images) %>:</strong></dt>
   <dd>
   <% @publication.property.images.each do |image| %>

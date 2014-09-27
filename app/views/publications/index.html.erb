@@ -71,6 +71,7 @@
     <% end %>
   </tbody>
 </table>
+  <%= paginate @publications %>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             publication_build_path(publication_id: 'new'),
