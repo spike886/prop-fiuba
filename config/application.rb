@@ -36,7 +36,7 @@ module Prop
     end
 
     config.action_view.field_error_proc = Proc.new { |html_tag, instance|
-      "<div class=\"control-group has-error\">#{html_tag}</div>".html_safe
+      "<div class=\"form-group has-error\">#{html_tag}</div>".html_safe
     }
 
     # Settings in config/environments/* take precedence over those specified here.

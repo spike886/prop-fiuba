@@ -64,6 +64,13 @@ class PublicationsController < ApplicationController
     end
   end
 
+  # PUT /publications/1/pause
+  def pause
+    @publication = Publication.find(params[:publication_id])
+    @publication.pause
+    redirect_to publications_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_publication

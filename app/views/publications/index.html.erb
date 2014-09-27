@@ -2,20 +2,35 @@
 <div class="panel-heading">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-<%= search_form_for @search do |f| %>
-    <div class="field">
-      <%= f.label :price_gteq, "Price between" %>
-      <%= f.text_field :price_gteq %>
-      <%= f.label :price_lteq, "and" %>
-      <%= f.text_field :price_lteq %>
-    </div>
-    <div class="field">
-      <%= f.label :property_address_cont, "Address" %>
-      <%= f.text_field :property_address_cont %>
-    </div>
-    <div class="actions"><%= f.submit "Search" %></div>
-<% end %>
 <div class="panel-body">
+<%= search_form_for @search, :html => { :class => "form-horizontal" } do |f| %>
+
+   <fieldset>
+
+      <div class="form-group">
+        <%= f.label :price_gteq, t("publication.search.price_from"), :class => 'col-md-2 control-label' %>
+        <div class="col-md-4">
+        <%= f.text_field :price_gteq, :class => 'form-control' %>
+        </div>
+        <%= f.label :price_lteq, t("publication.search.price_to"), :class => 'col-md-2 control-label' %>
+        <div class="col-md-4">
+        <%= f.text_field :price_lteq, :class => 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :property_address_cont, t("publication.search.address"), :class => 'col-md-2 control-label', for: 'q_property_address_cont' %>
+        <div class="col-md-4">
+        <%= f.text_field :property_address_cont, :class => 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-4">
+          <%= f.submit t("publication.search.button"), :class => 'btn btn-default' %>
+        </div>
+      </div>
+   </fieldset>
+<% end %>
+  <br/>
 <table class=" table table-striped">
   <thead>
     <tr>
@@ -38,7 +53,8 @@
         <td><%= publication.end_date %></td>
         <td><%= publication.publication_type.name %></td>
         <td>
-          <%= link_to publication_path(publication), :class => 'btn btn-default btn-xs' do %>
+          <%= link_to publication_pause_path(publication),
+                      :method => :put, :class => 'btn btn-default btn-xs' do %>
               <%= status_button_tag publication.state %>
           <% end %>
           <%= link_to publication_path(publication), :class => 'btn btn-info btn-xs' do %>

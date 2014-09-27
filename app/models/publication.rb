@@ -46,31 +46,36 @@ class Publication < ActiveRecord::Base
   end
 
   def active_or_operation_type?
-    status.include?('operation_type') || active?
+    status.include?('operation_type')
   end
 
   def active_or_publication_type?
-    status.include?('publication_type') || active?
+    status.include?('publication_type')
   end
 
   def active_or_property_type?
-    status.include?('property_type') || active?
+    status.include?('property_type')
   end
 
   def active_or_data_input_one?
-    status.include?('data_input_one') || active?
+    status.include?('data_input_one')
   end
 
   def active_or_data_input_two?
-    status.include?('data_input_two') || active?
+    status.include?('data_input_two')
   end
 
   def active_or_data_input_three?
-    status.include?('data_input_three') || active?
+    status.include?('data_input_three')
   end
 
   def active_or_payment?
-    status.include?('payment') || active?
+    status.include?('payment')
+  end
+
+  def pause
+    self.active = !active
+    save
   end
 
   private #==========================================================
@@ -79,7 +84,6 @@ class Publication < ActiveRecord::Base
     if wizard_finished?
       self.start_date = Time.zone.now
       self.end_date = start_date + publication_type.publication_days.days
-      self.active = true
     end
   end
 end

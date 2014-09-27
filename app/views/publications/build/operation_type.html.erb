@@ -1,9 +1,21 @@
 <%= render "wizard_header" %>
-<% Publication::OPERATION_TYPES.each do |operation| %>
-    <%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal publication" } do |f| %>
-        <%= f.hidden_field :operation_type, value: operation %>
-        <%= f.submit operation, :class => 'btn btn-primary' %>
-
-    <% end %>
-<% end %>
-<%= render "wizard_footer" %>
+<div class="panel-body">
+  <%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal publication" } do |f| %>
+    <div class="form-group">
+      <%= f.label :operation_type, :class => 'col-md-4 control-label' %>
+      <div class="col-md-8">
+        <div class="btn-group" data-toggle="buttons">
+          <% Publication::OPERATION_TYPES.each do |operation| %>
+              <%= f.label :o, :class => "btn btn-default #{'active' if f.object.operation_type==operation}" do  %>
+                  <%= f.radio_button :operation_type, operation %>
+                  <%= operation %>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+      <%= render layout: "wizard_footer" do %>
+          <%= f.submit 'Siguiente', :class => 'btn btn-primary' %>
+      <% end %>
+  <% end %>
+</div>

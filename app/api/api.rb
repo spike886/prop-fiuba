@@ -11,6 +11,7 @@ class API < Grape::API
   mount Prop::Locations
   mount Prop::PropertyTypes
   mount Prop::Publications
+  mount Prop::Users
 
   base_path_proc = Proc.new do |r|
     if Rails.env.development?

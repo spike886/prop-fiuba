@@ -15,37 +15,37 @@
     </div>
   <% end %>
 
-    <div class="control-group">
-      <%= f.label :operation_type, :class => 'control-label' %>
-      <div class="controls">
+    <div class="form-group">
+      <%= f.label :operation_type, :class => 'col-md-4 control-label' %>
+      <div class="col-md-4">
         <%= f.select :operation_type, Publication::OPERATION_TYPES, {prompt: "Seleccione..."}, :class => 'form-control' %>
       </div>
       <%= error_span(@publication[:operation_type]) %>
     </div>
-    <div class="control-group">
-      <%= f.label :publication_type_id, :class => 'control-label' %>
-      <div class="controls">
+    <div class="form-group">
+      <%= f.label :publication_type_id, :class => 'col-md-4 control-label' %>
+      <div class="col-md-4">
         <%= f.select :publication_type_id, PublicationType.all.map{|t|[t.name, t.id]}, {prompt: "Seleccione..."}, :class => 'form-control' %>
       </div>
       <%= error_span(@publication[:publication_type_id]) %>
     </div>
-    <div class="control-group">
-      <%= f.label :property_id, :class => 'control-label' %>
-      <div class="controls">
+    <div class="form-group">
+      <%= f.label :property_id, :class => 'col-md-4 control-label' %>
+      <div class="col-md-4">
         <%= f.select :property_id, Property.all.map{|t|[t.id, t.id]}, {prompt: "Seleccione..."}, :class => 'form-control' %>
       </div>
       <%= error_span(@publication[:property_id]) %>
     </div>
-    <div class="control-group">
-      <%= f.label :price, :class => 'control-label' %>
-      <div class="controls">
+    <div class="form-group">
+      <%= f.label :price, :class => 'col-md-4 control-label' %>
+      <div class="col-md-4">
         <%= f.number_field :price, :class => 'form-control' %>
       </div>
       <%= error_span(@publication[:property_id]) %>
     </div>
-    <div class="control-group">
-      <%= f.label :currency, :class => 'control-label' %>
-      <div class="controls">
+    <div class="form-group">
+      <%= f.label :currency, :class => 'col-md-4 control-label' %>
+      <div class="col-md-4">
         <%= f.select :currency, Publication::CURRENCY.map{|c|[c,c]}, {prompt: "Seleccione..."}, :class => 'form-control' %>
       </div>
       <%= error_span(@publication[:property_id]) %>

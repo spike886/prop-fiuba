@@ -1,5 +1,8 @@
 <%= render "wizard_header" %>
+<div class="panel-body">
 <%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal publication" } do |f| %>
-    <%= f.submit 'Terminar', :class => 'btn btn-primary' %>
+    <%= render layout: "wizard_footer" do %>
+        <%= f.submit 'Terminar', :class => 'btn btn-primary' %>
+    <% end %>
 <% end %>
-<%= render "wizard_footer" %>
+</div>

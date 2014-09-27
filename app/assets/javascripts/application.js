@@ -16,3 +16,5 @@
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require_tree .
+
+$('.btn').button();

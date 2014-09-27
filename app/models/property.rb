@@ -10,12 +10,12 @@ class Property < ActiveRecord::Base
   accepts_nested_attributes_for :location, reject_if: :all_blank
   accepts_nested_attributes_for :images, reject_if: :all_blank
   accepts_nested_attributes_for :videos, reject_if: :all_blank
-  accepts_nested_attributes_for :characteristic_instances, reject_if: lambda { |att| !(att[:boolean]||att[:string]||att[:integer]||att[:values]).nil?}
+  accepts_nested_attributes_for :characteristic_instances, reject_if: lambda { |att| (att[:boolean]||att[:string]||att[:integer]||att[:values]).nil? }
 
   validates :user, presence: true
   validates :property_type, presence: true, if: :active_or_property_type?
   validates :characteristic_instances, presence: true, if: :active_or_data_input_two?
-#  validates_associated :characteristic_instances, if: :active_or_data_input_two?
+  validates_associated :characteristic_instances, if: :active_or_data_input_two?
   validates :images, presence: true, if: :active_or_data_input_one?
   validates_associated :images, if: :active_or_data_input_one?
   validates_associated :videos, if: :active_or_data_input_one?

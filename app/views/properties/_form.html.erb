@@ -14,23 +14,23 @@
       </div>
     </div>
   <% end %>
-  <div class="control-group">
-    <%= f.label :location_id, :class => 'control-label' %>
-    <div class="controls">
+  <div class="form-group">
+    <%= f.label :location_id, :class => 'col-md-4 control-label' %>
+    <div class="col-md-4">
       <%= f.select :location_id, Location.all.map{|t|[t.name, t.id]}, {prompt: "Seleccione..."}, :class => 'form-control' %>
     </div>
     <%= error_span(@property[:location_id]) %>
   </div>
-  <div class="control-group">
-    <%= f.label :property_type_id, :class => 'control-label' %>
-    <div class="controls">
+  <div class="form-group">
+    <%= f.label :property_type_id, :class => 'col-md-4 control-label' %>
+    <div class="col-md-4">
       <%= f.select :property_type_id, PropertyType.all.map{|t|[t.name, t.id]}, {prompt: "Seleccione..."}, :class => 'form-control' %>
     </div>
     <%= error_span(@property[:property_type_id]) %>
   </div>
-    <div class="control-group">
-      <%= f.label :address, :class => 'control-label' %>
-      <div class="controls">
+    <div class="form-group">
+      <%= f.label :address, :class => 'col-md-4 control-label' %>
+      <div class="col-md-4">
         <%= f.text_field :address, :class => 'form-control' %>
       </div>
       <%= error_span(@property[:property_type_id]) %>

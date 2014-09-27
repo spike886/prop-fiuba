@@ -18,9 +18,11 @@
   <dt><strong><%= model_class.human_attribute_name(:active) %>:</strong></dt>
   <dd><%= @publication.active %></dd>
   <dt><strong><%= model_class.human_attribute_name(:images) %>:</strong></dt>
+  <dd>
   <% @publication.property.images.each do |image| %>
-    <dd><%= image_tag image.file.url %></dd>
+    <%= image_tag image.file.url, class: 'img-thumbnail', style: 'max-width: 140px; max-height: 140px;' %>
   <% end %>
+  </dd>
   <dt><strong><%= model_class.human_attribute_name(:videos) %>:</strong></dt>
   <% @publication.property.videos.each do |video| %>
     <dd><%= link_to video.url, video.url %></dd>
@@ -44,11 +46,9 @@
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               publications_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_publication_path(@publication), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               publication_path(@publication),
               :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Estas seguro?')) },
               :class => 'btn btn-danger' %>
 </div>

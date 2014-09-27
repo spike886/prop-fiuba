@@ -1,11 +1,14 @@
-<div class="control-group">
-  <div class="checkbox">
-    <%= f.label :boolean do  %>
-        <%= f.check_box :boolean %>
-        <%= characteristic_instance.characteristic.name %>
-    <% end %>
-    <%= f.hidden_field :characteristic_id %>
-    <%= f.hidden_field :type %>
-    <%= error_span(characteristic_instance.characteristic.name) %>
+<div class="form-group">
+  <div class="col-md-4">
   </div>
+    <div class="checkbox col-md-4">
+        <%= f.label :boolean do  %>
+            <%= f.hidden_field :boolean, value: false %>
+            <%= f.check_box :boolean %>
+            <%= characteristic_instance.characteristic.name %>
+        <% end %>
+        <%= f.hidden_field :characteristic_id %>
+        <%= f.hidden_field :type %>
+        <%= error_span(characteristic_instance.characteristic.name) %>
+    </div>
 </div>

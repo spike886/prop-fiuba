@@ -1,5 +1,6 @@
 <%= render "wizard_header" %>
-<%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal publication" } do |f| %>
+<div class="panel-body">
+<%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal" } do |f| %>
 
     <%= f.fields_for :property do |ff| %>
         <%= ff.fields_for :characteristic_instances do |fff| %>
@@ -7,7 +8,8 @@
                      locals: {characteristic_instance: fff.object, f: fff} %>
         <% end %>
     <% end %>
-
+    <%= render layout: "wizard_footer" do %>
     <%= f.submit 'Siguiente', :class => 'btn btn-primary' %>
+    <% end %>
 <% end %>
-<%= render "wizard_footer" %>
+</div>

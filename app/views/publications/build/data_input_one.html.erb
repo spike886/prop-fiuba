@@ -1,42 +1,48 @@
 <%= render "wizard_header" %>
+<div class="panel-body">
 <%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal publication" } do |f| %>
-
     <%= f.fields_for :property do |ff| %>
-        <%= ff.fields_for :images do |fff| %>
-            <div data-provides="fileinput" class="control-group fileinput fileinput-new">
-              <%= fff.label :file, class: 'control-label' %>
-              <div class="controls">
-                <input type="hidden">
-                <div class="fileinput-new thumbnail">
-                  <% if fff.object.persisted? %>
-                      <%= image_tag fff.object.file.url %>
-                  <% else %>
-                      <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="">
-                  <% end %>
-                </div>
-                <div style="line-height: 0px;" class="fileinput-preview fileinput-exists thumbnail"></div>
-                <div>
-      <span class="btn btn-file">
-        <span class="fileinput-new">Select image</span>
-        <span class="fileinput-exists">Change</span>
-        <%= fff.file_field :file %>
-      </span>
-                  <a data-dismiss="fileinput" class="btn fileinput-exists" href="#">Remove</a>
+        <%= ff.label :images, class: 'col-md-4 control-label' %>
+        <div class="col-md-8">
+          <div class="form-group">
+            <%= ff.fields_for :images do |fff| %>
+              <div class="col-md-6">
+                <div data-provides="fileinput" class="form-group fileinput fileinput-new">
+                    <input type="hidden">
+                    <div class="fileinput-new thumbnail">
+                      <% if fff.object.persisted? %>
+                          <%= image_tag fff.object.file.url, style: 'max-height: 160px; max-width: 210px' %>
+                      <% else %>
+                          <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="">
+                      <% end %>
+                    </div>
+                    <div style="line-height: 0px; max-height: 160px; max-width: 210px" class="fileinput-preview fileinput-exists thumbnail"></div>
+                    <div>
+                      <span class="btn btn-file">
+                        <span class="fileinput-new"><%= t "publications.select_image" %></span>
+                        <span class="fileinput-exists"><%= t "publications.change_image" %></span>
+                        <%= fff.file_field :file %>
+                      </span>
+                      <a data-dismiss="fileinput" class="btn fileinput-exists" href="#"><%= t "publications.remove_image" %></a>
+                    </div>
                 </div>
               </div>
-            </div>
-        <% end %>
-        <%= ff.fields_for :videos do |fff| %>
-            <div class="control-group">
-              <%= fff.label :url, :class => 'control-label' %>
-              <div class="controls">
+            <% end %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= ff.label :videos, :class => 'col-md-4 control-label' if @publication.publication_type.videos_count > 0%>
+          <div class="col-md-4">
+            <%= ff.fields_for :videos do |fff| %>
                 <%= fff.text_field :url, :class => 'form-control' %>
-              </div>
               <%= error_span(fff.object.property[:url]) %>
-            </div>
-        <% end %>
+            <% end %>
+          </div>
+        </div>
     <% end %>
 
-    <%= f.submit 'Siguiente', :class => 'btn btn-primary' %>
+    <%= render layout: "wizard_footer" do %>
+        <%= f.submit 'Siguiente', :class => 'btn btn-primary' %>
+    <% end %>
 <% end %>
-<%= render "wizard_footer" %>
+</div>

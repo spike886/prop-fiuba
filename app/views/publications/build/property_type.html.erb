@@ -1,11 +1,24 @@
 <%= render "wizard_header" %>
+<div class="panel-body">
 <% property_types= PropertyType.all %>
-<% property_types.each do |type| %>
   <%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal publication" } do |f| %>
-      <%= f.fields_for :property do |ff| %>
-          <%= ff.hidden_field :property_type_id, value: type.to_param %>
+      <div class="form-group">
+        <%= f.label :property_type_id, :class => 'col-md-4 control-label' %>
+        <div class="col-md-8">
+          <div class="btn-group" data-toggle="buttons">
+              <% property_types.each do |type| %>
+                  <%= f.fields_for :property do |ff| %>
+                    <%= f.label :o, :class => "btn btn-default #{'active' if ff.object.property_type_id==type.id} col-md-4" do  %>
+                        <%= ff.radio_button :property_type_id, type.to_param %>
+                        <%= type.name %>
+                    <% end %>
+                  <% end %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+      <%= render layout: "wizard_footer" do %>
+          <%= f.submit 'Siguiente', :class => 'btn btn-primary' %>
       <% end %>
-      <%= f.submit type.name, :class => 'btn btn-primary' %>
   <% end %>
-<% end %>
-<%= render "wizard_footer" %>
+</div>

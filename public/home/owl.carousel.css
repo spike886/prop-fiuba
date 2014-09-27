@@ -40,11 +40,11 @@
 .owl-carousel .owl-item{
 	float: left;
 }
-.owl-controls .owl-page,
-.owl-controls .owl-buttons div{
+.owl-col-md-4 .owl-page,
+.owl-col-md-4 .owl-buttons div{
 	cursor: pointer;
 }
-.owl-controls {
+.owl-col-md-4 {
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;

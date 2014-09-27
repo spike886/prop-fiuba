@@ -1,10 +1,13 @@
 <%= render "wizard_header" %>
+<div class="panel-body">
 <%= form_for @publication, url: wizard_path, :html => { :class => "form-horizontal publication" } do |f| %>
 
-    <div class="control-group">
-      <%= f.label :price, :class => 'control-label' %>
-      <div class="controls">
+    <div class="form-group">
+      <%= f.label :price, :class => 'col-md-4 control-label' %>
+      <div class="col-md-2">
         <%= f.number_field :price, :class => 'form-control' %>
+      </div>
+      <div class="col-md-2">
         <%= f.select :currency, Publication::CURRENCY.map{|t|[t, t]},{}, :class => 'form-control' %>
       </div>
       <%= error_span(@publication[:price]) %>
@@ -13,23 +16,23 @@
 
     <%= f.fields_for :property do |ff| %>
 
-        <div class="control-group">
-          <%= ff.label :description, :class => 'control-label' %>
-          <div class="controls">
+        <div class="form-group">
+          <%= ff.label :description, :class => 'col-md-4 control-label' %>
+          <div class="col-md-4">
             <%= ff.text_area :description, :class => 'form-control' %>
           </div>
           <%= error_span(@publication.property[:description]) %>
         </div>
-        <div class="control-group">
-          <%= ff.label :address, :class => 'control-label' %>
-          <div class="controls">
+        <div class="form-group">
+          <%= ff.label :address, :class => 'col-md-4 control-label' %>
+          <div class="col-md-4">
             <%= ff.text_field :address, :class => 'form-control' %>
           </div>
           <%= error_span(@publication.property[:address]) %>
         </div>
-        <div class="control-group">
-          <%= ff.label :location_id, :class => 'control-label' %>
-          <div class="controls">
+        <div class="form-group">
+          <%= ff.label :location_id, :class => 'col-md-4 control-label' %>
+          <div class="col-md-4">
             <%= ff.select :location_id, Location.all.map{|t|[t.name, t.id]}, {prompt: "Seleccione..."}, :class => 'form-control' %>
           </div>
           <%= error_span(@publication.property[:location_id]) %>
@@ -39,6 +42,8 @@
 
 
 
-    <%= f.submit 'Siguiente', :class => 'btn btn-primary' %>
+    <%= render layout: "wizard_footer" do %>
+        <%= f.submit 'Siguiente', :class => 'btn btn-primary' %>
+    <% end %>
 <% end %>
-<%= render "wizard_footer" %>
+</div>

@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :users
     resources :publications do
       resource :build, controller: 'publications/build'
+      put :pause
     end
-    resources :properties
   end
   HighVoltage.configure do |config|
     config.route_drawer = HighVoltage::RouteDrawers::Root
